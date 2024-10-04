@@ -11,11 +11,12 @@ connectDB();
 
 const app = express();
 
+app.use(json({ extended: false }));
+
 //routes
 import todoRoute from "./routes/todo.route.js";
 app.use("/todo", todoRoute);
 
-app.use(json({ extended: false }));
 app.get("/", (req, res) => res.send("Server up and running"));
 
 const PORT = process.env.PORT || 8000;
